@@ -14,3 +14,19 @@ func GetFloorForSanta(input string) (floor int) {
 
 	return floor
 }
+
+func FindPositionOfTheFirstCharacterToBasement(input string) (floor int) {
+	for idx, ch := range input {
+		if ch == '(' {
+			floor++
+		} else if ch == ')' {
+			floor--
+		}
+
+		if floor == -1 {
+			return idx + 1
+		}
+	}
+
+	return -1
+}
