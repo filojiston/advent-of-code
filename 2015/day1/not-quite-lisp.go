@@ -3,7 +3,7 @@
 
 package day1
 
-func GetFloorForSanta(input string) (floor int) {
+func getFloorForSanta(input string) (floor int) {
 	for _, ch := range input {
 		if ch == '(' {
 			floor++
@@ -15,7 +15,7 @@ func GetFloorForSanta(input string) (floor int) {
 	return floor
 }
 
-func FindPositionOfTheFirstCharacterToBasement(input string) (floor int) {
+func findPositionOfTheFirstCharacterToBasement(input string) (floor int) {
 	for idx, ch := range input {
 		if ch == '(' {
 			floor++
