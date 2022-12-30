@@ -4,12 +4,11 @@
 package day2
 
 import (
-	"bufio"
-	"log"
-	"os"
 	"sort"
 	"strconv"
 	"strings"
+
+	"github.com/filojiston/advent-of-code/2015/util"
 )
 
 func getSmallestTwoInts(x, y, z int) (smallestX, smallestY int) {
@@ -32,26 +31,6 @@ func calculateTotalFeetOfRibbon(length, width, height int) (result int) {
 	return requiredFeetOfRibbonForPresent + requiredFeetOfRibbonForBow
 }
 
-func readInputFile() (lines []string) {
-	f, err := os.Open("input.txt")
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	defer f.Close()
-
-	scanner := bufio.NewScanner(f)
-	for scanner.Scan() {
-		lines = append(lines, scanner.Text())
-	}
-
-	if err = scanner.Err(); err != nil {
-		log.Fatal(err)
-	}
-
-	return lines
-}
-
 func getDimensionsFromLine(line string) (length, width, height int) {
 	dimensions := strings.Split(line, "x")
 	lengthString, widthString, heightString := dimensions[0], dimensions[1], dimensions[2]
@@ -63,7 +42,7 @@ func getDimensionsFromLine(line string) (length, width, height int) {
 }
 
 func calculateTotalSquareFeetOfWrappingPaperFromFile() (result int) {
-	lines := readInputFile()
+	lines := util.ReadInputFile("input.txt")
 	for _, line := range lines {
 		length, width, height := getDimensionsFromLine(line)
 		result += calculateTotalSquareFeetOfWrappingPaper(length, width, height)
@@ -73,7 +52,7 @@ func calculateTotalSquareFeetOfWrappingPaperFromFile() (result int) {
 }
 
 func calculateTotalFeetOfRibbonFromFile() (result int) {
-	lines := readInputFile()
+	lines := util.ReadInputFile("input.txt")
 	for _, line := range lines {
 		length, width, height := getDimensionsFromLine(line)
 		result += calculateTotalFeetOfRibbon(length, width, height)
