@@ -5,3 +5,4 @@ this repository will contain my solutions (or attempts) for advent of code probl
 - 2015 -> golang
 - 2016 -> rust
 - 2017 -> java
+- 2018 -> python
