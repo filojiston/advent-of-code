@@ -1,3 +1,3 @@
 def read_input(file_path):
     with open(file_path, "r") as file:
-        return file.readlines()
+        return [line.strip() for line in file.readlines()]
