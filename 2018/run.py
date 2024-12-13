@@ -8,5 +8,7 @@ if not len(sys.argv) == 2:
 day_to_run = sys.argv[1]
 if sys.platform == "linux" or sys.platform == "linux2":
     os.system(f"python3 -B -m {day_to_run}.app")
-if sys.platform == "win32":
+elif sys.platform == "darwin":
+    os.system(f"python3 -B -m {day_to_run}.app")
+elif sys.platform == "win32":
     os.system(f"python3.12.exe -B -m {day_to_run}.app")
